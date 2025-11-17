@@ -1,324 +1,250 @@
-// src/components/Navbar.jsx
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 // eslint-disable-next-line no-unused-vars
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 22);
+      setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const handleSectionChange = () => {
+      const sections = document.querySelectorAll("section[id]");
+      const scrollY = window.pageYOffset;
+
+      sections.forEach((section) => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute("id");
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          setActiveSection(sectionId);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleSectionChange);
+    handleSectionChange();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleSectionChange);
+    };
   }, []);
 
-  const toggleTheme = () => {
-    const root = document.documentElement;
-    
-    if (isDark) {
-      // Switch to light mode
-      root.classList.remove('dark');
-    } else {
-      // Switch to dark mode
-      root.classList.add('dark');
-    }
-    
-    setIsDark(!isDark);
-    localStorage.setItem('theme', !isDark ? 'dark' : 'light');
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Services", href: "#services" },
+    { name: "Contact", href: "#contact" },
   ];
 
-  // Smooth scroll function for anchor links
   const handleSmoothScroll = (e, href) => {
     e.preventDefault();
-    if (href.startsWith('#')) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        setIsMenuOpen(false);
-      }
-    }
-  };
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
 
-  // Animation variants
-  const navVariants = {
-    hidden: { y: -100, opacity: 0 },
-    visible: { 
-      y: 0, 
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
-        duration: 0.5
-      }
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      setActiveSection(targetId);
+      setIsMenuOpen(false);
     }
-  };
-
-  const itemVariants = {
-    hidden: { y: -20, opacity: 0 },
-    visible: (i) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        delay: i * 0.1,
-        type: "spring",
-        stiffness: 300,
-        damping: 24
-      }
-    })
   };
 
   const mobileMenuVariants = {
     closed: {
       opacity: 0,
       height: 0,
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut"
-      }
+      transition: { duration: 0.3, ease: "easeInOut" },
     },
     open: {
       opacity: 1,
       height: "auto",
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut"
-      }
-    }
-  };
-
-  const iconVariants = {
-    initial: { scale: 1, rotate: 0 },
-    hover: { scale: 1.1, rotate: 180 },
-    tap: { scale: 0.9 }
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
   };
 
   return (
-    <motion.nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-white dark:bg-gray-900 shadow-lg border-b border-gray-200 dark:border-gray-800' 
-          : 'bg-white dark:bg-gray-900'
+    <motion.nav
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-slate-900 border-b border-white/10 shadow-2xl"
+          : "bg-transparent"
       }`}
-      initial="hidden"
-      animate="visible"
-      variants={navVariants}
     >
-      <div className="max-w-6xl mx-auto px-5">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <motion.a 
-            href="#home"
-            onClick={(e) => handleSmoothScroll(e, '#home')}
-            className="text-xl font-bold text-gray-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500 transition-all duration-300"
+          <motion.button
+            onClick={(e) => handleSmoothScroll(e, "#home")}
+            className="flex items-center gap-2 group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            YourName
-          </motion.a>
+            <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg flex items-center justify-center shadow-lg shadow-orange-500/30">
+              <span className="text-white font-bold text-sm">Mu7</span>
+            </div>
+            <span className="text-lg font-bold text-white group-hover:text-orange-300 transition-colors duration-300">
+              Mu7med{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">
+                Shahba
+              </span>
+            </span>
+          </motion.button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                onClick={(e) => handleSmoothScroll(e, item.href)}
-                className="text-sm font-medium text-gray-700 dark:text-white hover:text-orange-500 dark:hover:text-orange-500 transition-all duration-300 relative group"
-                custom={index}
-                variants={itemVariants}
-                initial="hidden"
-                animate="visible"
-                whileHover={{ y: -2 }}
-                whileTap={{ y: 0 }}
-              >
-                {item.name}
-                <motion.span 
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"
-                  whileHover={{ width: "100%" }}
-                />
-              </motion.a>
-            ))}
-          </div>
+          <div className="hidden lg:flex items-center gap-8">
+            {navItems.map((item) => {
+              const sectionId = item.href.substring(1);
+              const isActive = activeSection === sectionId;
 
-          {/* Right side - Theme toggle & CTA */}
-          <div className="hidden md:flex items-center space-x-4">
-            {/* Theme Toggle */}
-            <motion.button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-white hover:text-orange-500 dark:hover:text-orange-500 transition-all duration-300"
-              aria-label="Toggle theme"
-              variants={iconVariants}
-              initial="initial"
-              whileHover="hover"
-              whileTap="tap"
-            >
-              {isDark ? (
-                // Sun icon for light mode
-                <motion.svg 
-                  className="w-5 h-5" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                  key="sun"
-                  initial={{ rotate: -180, scale: 0 }}
-                  animate={{ rotate: 0, scale: 1 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 10 }}
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => handleSmoothScroll(e, item.href)}
+                  className={`relative text-sm font-medium transition-all duration-300 group ${
+                    isActive
+                      ? "text-orange-400"
+                      : "text-gray-300 hover:text-white"
+                  }`}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </motion.svg>
-              ) : (
-                // Moon icon for dark mode
-                <motion.svg 
-                  className="w-5 h-5" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                  key="moon"
-                  initial={{ rotate: 180, scale: 0 }}
-                  animate={{ rotate: 0, scale: 1 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 10 }}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </motion.svg>
-              )}
-            </motion.button>
+                  {item.name}
+                  <span
+                    className={`absolute left-0 -bottom-2 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400 transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </a>
+              );
+            })}
 
             {/* CTA Button */}
-            <motion.a
-              href="#contact"
-              onClick={(e) => handleSmoothScroll(e, '#contact')}
-              className="px-4 py-2 text-sm font-medium bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-all duration-300"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 10px 25px -5px rgba(249, 115, 22, 0.4)"
-              }}
+            <motion.button
+              onClick={(e) => handleSmoothScroll(e, "#contact")}
+              className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-sm font-semibold rounded-full hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-orange-500/30 border border-orange-400/30 flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              Get in Touch
-            </motion.a>
+              <span>Let's Talk</span>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                />
+              </svg>
+            </motion.button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex md:hidden items-center space-x-2">
-            {/* Theme Toggle - Mobile */}
-            <motion.button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-white hover:text-orange-500 dark:hover:text-orange-500 transition-all duration-300"
-              aria-label="Toggle theme"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              {isDark ? (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              )}
-            </motion.button>
-
-            {/* Hamburger Menu */}
-            <motion.button
-              onClick={toggleMenu}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-white hover:text-orange-500 dark:hover:text-orange-500 transition-all duration-300"
-              aria-label="Toggle menu"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              {isMenuOpen ? (
-                // X icon
-                <motion.svg 
-                  className="w-5 h-5" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </motion.svg>
-              ) : (
-                // Hamburger icon
-                <motion.svg 
-                  className="w-5 h-5" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </motion.svg>
-              )}
-            </motion.button>
-          </div>
+          <motion.button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden p-2 rounded-xl bg-white/10 border border-white/20 hover:bg-orange-500/30 hover:border-orange-400 transition-all duration-300"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <div className="w-6 h-6 flex flex-col justify-center items-center relative">
+              <span
+                className={`absolute w-4 h-0.5 bg-white transition-all duration-300 ${
+                  isMenuOpen ? "rotate-45 top-3" : "-translate-y-1"
+                }`}
+              />
+              <span
+                className={`absolute w-4 h-0.5 bg-white transition-opacity duration-300 ${
+                  isMenuOpen ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`absolute w-4 h-0.5 bg-white transition-all duration-300 ${
+                  isMenuOpen ? "-rotate-45 top-3" : "translate-y-1"
+                }`}
+              />
+            </div>
+          </motion.button>
         </div>
 
         {/* Mobile Navigation */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div 
-              className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700 overflow-hidden"
+            <motion.div
+              className="lg:hidden border-t border-white/10 overflow-hidden bg-slate-900"
               variants={mobileMenuVariants}
               initial="closed"
               animate="open"
               exit="closed"
             >
-              <div className="flex flex-col space-y-4">
-                {navItems.map((item, index) => (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => handleSmoothScroll(e, item.href)}
-                    className="text-sm font-medium text-gray-700 dark:text-white hover:text-orange-500 dark:hover:text-orange-500 transition-all duration-300 py-2"
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ x: 10 }}
-                  >
-                    {item.name}
-                  </motion.a>
-                ))}
-                <motion.a
-                  href="#contact"
-                  onClick={(e) => handleSmoothScroll(e, '#contact')}
-                  className="px-4 py-2 text-sm font-medium bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-all duration-300 text-center mt-2"
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: navItems.length * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+              <div className="py-6 flex flex-col gap-4">
+                {navItems.map((item) => {
+                  const sectionId = item.href.substring(1);
+                  const isActive = activeSection === sectionId;
+
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      onClick={(e) => handleSmoothScroll(e, item.href)}
+                      className={`text-base font-medium py-3 px-4 rounded-xl transition-all duration-300 ${
+                        isActive
+                          ? "bg-orange-500/20 text-orange-400 border border-orange-400/30"
+                          : "text-gray-300 hover:text-white hover:bg-white/10"
+                      }`}
+                    >
+                      {item.name}
+                    </a>
+                  );
+                })}
+
+                <button
+                  onClick={(e) => handleSmoothScroll(e, "#contact")}
+                  className="mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold rounded-xl hover:from-orange-600 hover:to-amber-600 transition-all duration-300 border border-orange-400/30 flex items-center justify-center gap-2"
                 >
-                  Get in Touch
-                </motion.a>
+                  <span>Let's Talk</span>
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                    />
+                  </svg>
+                </button>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+
+      {/* Background Overlay for Mobile */}
+      {isMenuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black/50 z-40 mt-16"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
     </motion.nav>
   );
 };

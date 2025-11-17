@@ -1,0 +1,80 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Tutora - Online Learning Platform",
+      "description": "A comprehensive online learning platform with course management, student progress tracking, and interactive learning features.",
+      "tech": ["React", "Node.js", "MongoDB", "Express", "JWT"],
+      "category": "Fullstack",
+      "status": "Live",
+      "featured": true,
+      "gradient": "from-blue-500 to-purple-600",
+      "icon": "🎓",
+      "liveUrl": "https://tutora-web.netlify.app/",
+      "githubUrl": "https://github.com/mu7amedshahba/web_tutora",
+      "image": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80",
+      "screenshot": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+      "id": 2,
+      "title": "BookStore - E-commerce Platform",
+      "description": "Modern e-book store with advanced search, user reviews, shopping cart, and secure payment integration.",
+      "tech": ["React", "CSS3", "JavaScript", "API Integration", "Responsive Design"],
+      "category": "Frontend",
+      "status": "Completed",
+      "featured": true,
+      "gradient": "from-green-500 to-emerald-600",
+      "icon": "📚",
+      "liveUrl": "https://web-books-store99.netlify.app/",
+      "githubUrl": "https://github.com/mu7amedshahba/shop_store",
+      "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80",
+      "screenshot": "https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-4.0.3&auto=format&fit=crop&w=1134&q=80"
+    },
+    {
+      "id": 3,
+      "title": "Task Management App",
+      "description": "Collaborative project management tool with real-time updates, team chat, and advanced analytics dashboard.",
+      "tech": ["Next.js", "Socket.io","Tailwind", "Prisma"],
+      "category": "Web App",
+      "status": "Live",
+      "featured": false,
+      "gradient": "from-green-500 to-cyan-600",
+      "icon": "📊",
+      "liveUrl": "#",
+      "githubUrl": "#",
+      "image": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1139&q=80",
+      "screenshot": "https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+      "id": 4,
+      "title": "Fitness Tracking App",
+      "description": "Mobile-first fitness application with personalized workout plans, progress tracking, and social features.",
+      "tech": ["React Native", "Firebase", "GraphQL", "Redux", "AWS"],
+      "category": "Mobile",
+      "status": "Completed",
+      "featured": true,
+      "gradient": "from-orange-500 to-red-500",
+      "icon": "💪",
+      "liveUrl": "#",
+      "githubUrl": "#",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      "screenshot": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+      "id": 5,
+      "title": "AI Content Generator",
+      "description": "AI-powered content creation platform with natural language processing and multi-language support.",
+      "tech": ["Python", "FastAPI", "React", "OpenAI", "Docker"],
+      "category": "AI/ML",
+      "status": "In Progress",
+      "featured": true,
+      "gradient": "from-indigo-500 to-purple-600",
+      "icon": "🤖",
+      "liveUrl": "#",
+      "githubUrl": "#",
+      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1332&q=80",
+      "screenshot": "https://images.unsplash.com/photo-1677442135130-2c7e4dc55a6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1332&q=80"
+    }
+  ],
+  "categories": ["All", "Fullstack", "Frontend", "Web App", "Mobile", "AI/ML"]
+}
