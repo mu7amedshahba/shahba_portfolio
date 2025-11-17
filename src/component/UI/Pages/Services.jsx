@@ -297,7 +297,7 @@ const Services = () => {
                       variants={itemVariants}
                     >
                       <div
-                        className={`w-12 h-12 md:w-34 md:h-16 bg-linear-to-br ${gradientColors[activeCategory]} rounded-2xl flex items-center justify-center text-16 md:text-2xl text-white shadow-lg`}
+                        className={`w-32 h-12 md:w-34 md:h-16 bg-linear-to-br ${gradientColors[activeCategory]} rounded-2xl flex items-center justify-center text-16 md:text-2xl text-white shadow-lg`}
                       >
                         {servicesData[activeCategory].icon}
                       </div>

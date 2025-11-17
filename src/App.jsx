@@ -2,8 +2,8 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './component/UI/Pages/Hero';
-// import Navbar from './component/UI/navbar/Navbar';
-import Navbar from './component/UI/Pages22/Navbar';
+import Navbar from './component/UI/navbar/Navbar';
+// import Navbar from './component/UI/Pages22/Navbar';
 import WebSite from './component/UI/website';
 
 
