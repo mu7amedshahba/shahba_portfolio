@@ -1,0 +1,140 @@
+[
+  {
+    "category": "Management Consulting",
+    "slug": "management-consulting",
+    "icon": "briefcase",
+    "image": "/images/services/management-consulting.jpg",
+    "items": [
+      {
+        "name": "Business Process Analysis & Reporting",
+        "slug": "business-process-analysis-reporting",
+        "icon": "activity",
+        "description": "End-to-end analysis of business processes with professional reports that highlight weak points, bottlenecks, and improvement opportunities."
+      },
+      {
+        "name": "Strategic & Organizational Planning",
+        "slug": "strategic-organizational-planning",
+        "icon": "target",
+        "description": "Supporting top management in strategic planning, organizational design, and aligning structure, roles, and resources with company goals."
+      },
+      {
+        "name": "SWOT & PESTEL Analysis",
+        "slug": "swot-pestel-analysis",
+        "icon": "compass",
+        "description": "Preparing detailed SWOT and PESTEL analyses to understand internal capabilities and external market conditions for better decision making."
+      },
+      {
+        "name": "Benchmarking Studies",
+        "slug": "benchmarking-studies",
+        "icon": "line-chart",
+        "description": "Comparing your processes, performance, and organization with best practices and competitors to identify performance gaps and improvement areas."
+      },
+      {
+        "name": "RACI / RASCI & Authority Matrix",
+        "slug": "raci-rasci-authority-matrix",
+        "icon": "hierarchy",
+        "description": "Designing clear RACI / RASCI charts and authority matrices that define who is responsible, accountable, consulted, and informed across the organization."
+      },
+      {
+        "name": "Job Descriptions & Salary Structures",
+        "slug": "job-descriptions-salary-structures",
+        "icon": "file-text",
+        "description": "Building professional job descriptions, grading, and salary structures aligned with your business model and internal equity."
+      },
+      {
+        "name": "Recruitment & Talent Systems",
+        "slug": "recruitment-talent-systems",
+        "icon": "users",
+        "description": "Designing recruitment workflows, selection criteria, and onboarding processes to build a consistent and efficient hiring system."
+      },
+      {
+        "name": "Bonus & Incentive Systems",
+        "slug": "bonus-incentive-systems",
+        "icon": "badge-dollar-sign",
+        "description": "Designing profit-based bonus systems connected to company performance and Head Board decisions, with transparent and fair rules."
+      }
+    ]
+  },
+  {
+    "category": "Full-Stack Development",
+    "slug": "fullstack-development",
+    "icon": "code",
+    "image": "/images/services/fullstack-development.jpg",
+    "items": [
+      {
+        "name": "Personal & Portfolio Websites",
+        "slug": "personal-portfolio-websites",
+        "icon": "user-round",
+        "description": "Designing and developing modern personal and portfolio websites that present your brand, story, and projects professionally."
+      },
+      {
+        "name": "Company & Corporate Websites",
+        "slug": "company-corporate-websites",
+        "icon": "building",
+        "description": "Building responsive, SEO-friendly company websites that clearly communicate services, values, and contact channels to your clients."
+      },
+      {
+        "name": "Landing Pages for Campaigns",
+        "slug": "landing-pages",
+        "icon": "badge-percent",
+        "description": "High-converting landing pages for marketing campaigns, product launches, and lead generation with clear CTAs and tracking."
+      },
+      {
+        "name": "Educational Platforms",
+        "slug": "educational-platforms",
+        "icon": "graduation-cap",
+        "description": "Developing educational platforms with courses, roles (admin, instructor, student), progress tracking, and secure authentication."
+      },
+      {
+        "name": "E-commerce Websites",
+        "slug": "ecommerce-websites",
+        "icon": "shopping-cart",
+        "description": "Creating e-commerce solutions with product catalogs, carts, checkout flow, and integrations tailored to your business needs."
+      },
+      {
+        "name": "Single Page Applications (SPA)",
+        "slug": "single-page-applications",
+        "icon": "layout-dashboard",
+        "description": "Building fast, interactive SPAs using modern frameworks to deliver smooth user experiences and dynamic dashboards."
+      },
+      {
+        "name": "End-to-End Full-Stack Solutions",
+        "slug": "end-to-end-fullstack-solutions",
+        "icon": "layers",
+        "description": "Complete development from front-end UI to backend APIs, database design, deployment, and documentation for production use."
+      }
+    ]
+  },
+  {
+    "category": "Business Analysis, Data & Dashboards",
+    "slug": "business-analysis-data-dashboards",
+    "icon": "bar-chart-3",
+    "image": "/images/services/business-analysis-data.jpg",
+    "items": [
+      {
+        "name": "Business Analytics & Reporting",
+        "slug": "business-analytics-reporting",
+        "icon": "file-chart-column",
+        "description": "Collecting, cleaning, and maintaining business data, then transforming it into clear analytical reports for management."
+      },
+      {
+        "name": "Power BI Dashboards",
+        "slug": "power-bi-dashboards",
+        "icon": "monitor-play",
+        "description": "Designing interactive, professional Power BI dashboards that visualize KPIs, trends, and performance for decision makers."
+      },
+      {
+        "name": "Process Performance Monitoring",
+        "slug": "process-performance-monitoring",
+        "icon": "gauge",
+        "description": "Setting up metrics, visualizations, and tracking systems to continuously monitor the performance of key business processes."
+      },
+      {
+        "name": "Data Structuring & Maintenance",
+        "slug": "data-structuring-maintenance",
+        "icon": "database",
+        "description": "Structuring company data, building templates, and maintaining datasets to keep your reporting and dashboards accurate over time."
+      }
+    ]
+  }
+]
