@@ -2,7 +2,7 @@
   {
     "category": "Management Consulting",
     "slug": "management-consulting",
-    "icon": "briefcase",
+    "icon": "Consulting",
     "image": "/images/services/management-consulting.jpg",
     "items": [
       {
@@ -108,7 +108,7 @@
   {
     "category": "Business Analysis, Data & Dashboards",
     "slug": "business-analysis-data-dashboards",
-    "icon": "bar-chart-3",
+    "icon": "Business Analyst",
     "image": "/images/services/business-analysis-data.jpg",
     "items": [
       {
