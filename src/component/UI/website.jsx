@@ -10,8 +10,8 @@ const WebSite = () => {
     <div>
       <Home />
       <About />
-      <Services />
       <Projects />
+      <Services />
       <Contacts />
     </div>
   );

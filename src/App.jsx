@@ -1,38 +1,43 @@
 // src/App.jsx
-import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './component/UI/Pages/Hero';
-import Navbar from './component/UI/navbar/Navbar';
-// import Navbar from './component/UI/Pages22/Navbar';
-import WebSite from './component/UI/website';
-
+import { lazy, Suspense, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ErrorBoundary from "./component/error/ErrorBoundery";
+const LazyWebSite = lazy(() => import("./component/UI/website"));
+const LazyNavbar = lazy(() => import("./component/UI/navbar/Navbar"));
+const LazyAbout = lazy(() => import("./component/UI/Pages/About"));
+const LazyProjects = lazy(() => import("./component/UI/Pages/Projects"));
+const LazyServices = lazy(() => import("./component/UI/Pages22/Services"));
+const LazyLoading = () => import("./component/spinner/Spinner");
 
 function App() {
   useEffect(() => {
-    // Ensure dark mode is set on initial load
     const root = document.documentElement;
-    const savedTheme = localStorage.getItem('theme');
-    
-    if (savedTheme === 'light') {
-      root.classList.remove('dark');
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "light") {
+      root.classList.remove("dark");
     } else {
       // Default to dark mode
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     }
   }, []);
 
   return (
     <Router>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<WebSite />} />
-          {/* Add other routes as needed
-          <Route path="/projects" element={<Home />} />
-          <Route path="/contact" element={<Home />} /> */}
-        </Routes>
-      </div>
+      <ErrorBoundary>
+        <Suspense fallback={LazyLoading}>
+          <div className="App">
+            <LazyNavbar />
+            <Routes>
+              <Route path="/" element={<LazyWebSite />} />
+              <Route path="/about" element={<LazyAbout />} />
+              <Route path="/projects" element={<LazyProjects />} />
+              <Route path="/services" element={<LazyServices />} />
+            </Routes>
+          </div>
+        </Suspense>
+      </ErrorBoundary>
     </Router>
   );
 }
