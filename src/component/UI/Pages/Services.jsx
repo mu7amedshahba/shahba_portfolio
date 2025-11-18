@@ -505,16 +505,7 @@ const Services = () => {
         </motion.div>
       </div>
 
-      {/* Custom CSS for horizontal scroll hiding */}
-      <style jsx>{`
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
+      
     </section>
   );
 };

@@ -2,6 +2,8 @@ import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import iconImg from '../../design/images/iconImg.png'
+
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -240,7 +242,9 @@ const About = () => {
                   variants={itemVariants}
                 >
                   <div className="w-16 h-16 bg-linear-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center shadow-lg">
-                    <span className="text-white text-2xl">👨‍💼</span>
+                    <span className="text-white text-2xl">
+                      <img className='rounded-[50%] w-13 h-13' src={iconImg} alt="" />
+                    </span>
                   </div>
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">

@@ -7,7 +7,8 @@ const LazyNavbar = lazy(() => import("./component/UI/navbar/Navbar"));
 const LazyAbout = lazy(() => import("./component/UI/Pages/About"));
 const LazyProjects = lazy(() => import("./component/UI/Pages/Projects"));
 const LazyServices = lazy(() => import("./component/UI/Pages22/Services"));
-const LazyLoading = () => import("./component/spinner/Spinner");
+const LazyLoading = lazy(() => import("./component/spinner/Spinner"));
+const LazyNotFound = lazy(() => import("./component/notFound/NotFound"));
 
 function App() {
   useEffect(() => {
@@ -26,7 +27,7 @@ function App() {
   return (
     <Router>
       <ErrorBoundary>
-        <Suspense fallback={LazyLoading}>
+        <Suspense fallback={<LazyLoading />}>
           <div className="App">
             <LazyNavbar />
             <Routes>
@@ -34,6 +35,7 @@ function App() {
               <Route path="/about" element={<LazyAbout />} />
               <Route path="/projects" element={<LazyProjects />} />
               <Route path="/services" element={<LazyServices />} />
+              <Route path="*" element={<LazyNotFound />} />
             </Routes>
           </div>
         </Suspense>
