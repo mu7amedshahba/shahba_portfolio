@@ -45,13 +45,11 @@ const About = () => {
         "Market research",
         "OKR & KPI design",
         "Operational efficiency",
-        "PMO setup",
         "Risk management"
       ],
       "technical": [
-        "React.js, Next.js, Vite",
+        "React.js, Next.js",
         "Node.js, Express.js",
-        "MongoDB, SQL",
         "REST API design",
         "UI/UX design",
         "Automation & AI tools"
@@ -67,7 +65,7 @@ const About = () => {
       ]
     },
     "philosophy": "I believe the best solutions come from combining strategic clarity, operational discipline, and modern technology. My mission is to help businesses operate smarter—not harder.",
-    "years_of_experience": 7,
+    "years_of_experience": +2,
     "languages": [
       "Arabic (Native)",
       "English (Fluent)"

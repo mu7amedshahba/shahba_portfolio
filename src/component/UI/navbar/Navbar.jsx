@@ -1,63 +1,116 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import React, { useState, useEffect } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import iconImg from '../../design/images/iconImg.png'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-
+  
+  const location = useLocation();
+  const navigate = useNavigate();
+//  
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
+    // Only handle section changes if we're on the home page
     const handleSectionChange = () => {
-      const sections = document.querySelectorAll("section[id]");
-      const scrollY = window.pageYOffset;
+      if (location.pathname === '/') {
+        const sections = document.querySelectorAll("section[id]");
+        const scrollY = window.pageYOffset;
 
-      sections.forEach((section) => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute("id");
+        sections.forEach((section) => {
+          const sectionHeight = section.offsetHeight;
+          const sectionTop = section.offsetTop - 100;
+          const sectionId = section.getAttribute("id");
 
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          setActiveSection(sectionId);
-        }
-      });
+          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            setActiveSection(sectionId);
+          }
+        });
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("scroll", handleSectionChange);
-    handleSectionChange();
+    
+    // Set active section based on current route
+    if (location.pathname !== '/') {
+      setActiveSection(location.pathname.replace('/', ''));
+    } else {
+      handleSectionChange();
+    }
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("scroll", handleSectionChange);
     };
-  }, []);
+  }, [location.pathname]);
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Services", href: "#services" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/", section: "home" },
+    { name: "About", href: "/about", section: "about" },
+    { name: "Projects", href: "/projects", section: "projects" },
+    { name: "Services", href: "/services", section: "services" },
+    { name: "Contact", href: "/contact", section: "contact" },
   ];
 
-  const handleSmoothScroll = (e, href) => {
-    e.preventDefault();
-    const targetId = href.replace("#", "");
-    const element = document.getElementById(targetId);
-
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-      setActiveSection(targetId);
-      setIsMenuOpen(false);
+  const handleNavClick = (href, section) => {
+    if (location.pathname === '/' && href === '/') {
+      // Scroll to section on home page
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+        setActiveSection(section);
+      }
+    } else if (href === '/') {
+      // Navigate to home and scroll to top
+      navigate('/');
+      window.scrollTo(0, 0);
+      setActiveSection('home');
+    } else {
+      // Navigate to other pages
+      navigate(href);
+      setActiveSection(section);
+      window.scrollTo(0, 0);
     }
+    setIsMenuOpen(false);
+  };
+
+  const handleContactClick = () => {
+    if (location.pathname === '/') {
+      // Scroll to contact section on home page
+      const element = document.getElementById('contact');
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+        setActiveSection('contact');
+      }
+    } else {
+      // Navigate to home page and then to contact section
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById('contact');
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+          setActiveSection('contact');
+        }
+      }, 100);
+    }
+    setIsMenuOpen(false);
   };
 
   const mobileMenuVariants = {
@@ -71,6 +124,11 @@ const Navbar = () => {
       height: "auto",
       transition: { duration: 0.3, ease: "easeInOut" },
     },
+  };
+
+  // Determine if current item is active
+  const isItemActive = (itemSection) => {
+    return activeSection === itemSection;
   };
 
   return (
@@ -88,13 +146,15 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <motion.button
-            onClick={(e) => handleSmoothScroll(e, "#home")}
+            onClick={() => handleNavClick('/', 'home')}
             className="flex items-center gap-2 group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg flex items-center justify-center shadow-lg shadow-orange-500/30">
-              <span className="text-white font-bold text-sm">Mu7</span>
+              <span className="text-white font-bold text-sm">
+                <img className='rounded-[50%] w-9 h-9' src={iconImg} alt="Mu7med Shahba" />
+              </span>
             </div>
             <span className="text-lg font-bold text-white group-hover:text-orange-300 transition-colors duration-300">
               Mu7med{" "}
@@ -107,14 +167,12 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => {
-              const sectionId = item.href.substring(1);
-              const isActive = activeSection === sectionId;
+              const isActive = isItemActive(item.section);
 
               return (
-                <a
+                <button
                   key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleSmoothScroll(e, item.href)}
+                  onClick={() => handleNavClick(item.href, item.section)}
                   className={`relative text-sm font-medium transition-all duration-300 group ${
                     isActive
                       ? "text-orange-400"
@@ -127,13 +185,13 @@ const Navbar = () => {
                       isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                   />
-                </a>
+                </button>
               );
             })}
 
             {/* CTA Button */}
             <motion.button
-              onClick={(e) => handleSmoothScroll(e, "#contact")}
+              onClick={handleContactClick}
               className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-sm font-semibold rounded-full hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-orange-500/30 border border-orange-400/30 flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -194,27 +252,25 @@ const Navbar = () => {
             >
               <div className="py-6 flex flex-col gap-4">
                 {navItems.map((item) => {
-                  const sectionId = item.href.substring(1);
-                  const isActive = activeSection === sectionId;
+                  const isActive = isItemActive(item.section);
 
                   return (
-                    <a
+                    <button
                       key={item.name}
-                      href={item.href}
-                      onClick={(e) => handleSmoothScroll(e, item.href)}
-                      className={`text-base font-medium py-3 px-4 rounded-xl transition-all duration-300 ${
+                      onClick={() => handleNavClick(item.href, item.section)}
+                      className={`text-base font-medium py-3 px-4 rounded-xl transition-all duration-300 text-left ${
                         isActive
                           ? "bg-orange-500/20 text-orange-400 border border-orange-400/30"
                           : "text-gray-300 hover:text-white hover:bg-white/10"
                       }`}
                     >
                       {item.name}
-                    </a>
+                    </button>
                   );
                 })}
 
                 <button
-                  onClick={(e) => handleSmoothScroll(e, "#contact")}
+                  onClick={handleContactClick}
                   className="mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold rounded-xl hover:from-orange-600 hover:to-amber-600 transition-all duration-300 border border-orange-400/30 flex items-center justify-center gap-2"
                 >
                   <span>Let's Talk</span>

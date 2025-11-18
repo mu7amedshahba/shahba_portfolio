@@ -104,7 +104,7 @@ const Services = () => {
           </div>
 
           <h2 className="text-5xl font-bold text-white mb-4">
-            What I Can <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">Do For You</span>
+            What I Can <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-amber-400">Do For You</span>
           </h2>
 
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -120,13 +120,13 @@ const Services = () => {
               key={index}
               className={`relative group rounded-2xl p-8 transition-all duration-500 hover:-translate-y-4 overflow-hidden ${
                 service.featured
-                  ? "bg-gradient-to-br from-orange-500 to-amber-500 border border-orange-400 shadow-2xl shadow-orange-500/30"
+                  ? "bg-linear-to-br from-orange-500 to-amber-500 border border-orange-400 shadow-2xl shadow-orange-500/30"
                   : "bg-white/10 backdrop-blur-md border border-white/20 hover:border-orange-400 shadow-lg hover:shadow-orange-500/20"
               }`}
             >
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:20px_20px]"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-length:20px_20px"></div>
               </div>
 
               {/* Service Icon */}
@@ -186,7 +186,7 @@ const Services = () => {
 
               {/* Hover Glow Effect */}
               {!service.featured && (
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
               )}
             </div>
           ))}
@@ -215,14 +215,14 @@ const Services = () => {
         <div className="text-center mt-16">
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-12 border border-white/20 shadow-2xl shadow-black/30 max-w-4xl mx-auto">
             <h3 className="text-3xl font-bold text-white mb-4">
-              Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">Start Your Project</span>?
+              Ready to <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-amber-400">Start Your Project</span>?
             </h3>
             <p className="text-gray-300 mb-8 text-lg max-w-2xl mx-auto">
               Let's work together to bring your ideas to life using clean architecture, modern tech stacks, 
               and a strong focus on quality, performance, and user experience.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-full font-bold hover:from-orange-600 hover:to-amber-600 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-orange-500/30 border border-orange-400/30 flex items-center gap-3">
+              <button className="px-8 py-4 bg-linear-to-r from-orange-500 to-amber-500 text-white rounded-full font-bold hover:from-orange-600 hover:to-amber-600 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-orange-500/30 border border-orange-400/30 flex items-center gap-3">
                 <span>Start a Project</span>
                 <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />

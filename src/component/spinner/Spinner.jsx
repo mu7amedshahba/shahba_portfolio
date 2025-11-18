@@ -8,7 +8,7 @@ const Spinner = () => {
       <div className="text-center">
         {/* Animated Logo */}
         <motion.div
-          className="w-20 h-20 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-orange-500/30"
+          className="w-20 h-20 bg-linear-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-orange-500/30"
           animate={{
             scale: [1, 1.1, 1],
             rotate: [0, 180, 360],
@@ -40,7 +40,7 @@ const Spinner = () => {
           transition={{ delay: 0.7 }}
         >
           <motion.div
-            className="h-full bg-gradient-to-r from-orange-500 to-amber-500"
+            className="h-full bg-linear-to-r from-orange-500 to-amber-500"
             initial={{ width: "0%" }}
             animate={{ width: "100%" }}
             transition={{
