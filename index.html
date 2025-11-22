@@ -2,12 +2,132 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="./src/component/design/images/WhatsApp Image 2025-10-17 at 14.26.05_45ef492d.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-portfolio</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Mu7med Shahba | Business & Technology Consultant | Full-Stack Developer</title>
+    <meta name="title" content="Mu7med Shahba | Business & Technology Consultant | Full-Stack Developer">
+    <meta name="description" content="Business Analyst, Management Consultant & Full-Stack Developer specializing in digital transformation, process optimization, and scalable software solutions. Transforming businesses through technology and strategy.">
+    <meta name="keywords" content="Business Consultant, Full-Stack Developer, Management Consultant, Digital Transformation, Process Optimization, React Developer, Node.js, Business Strategy, KSA Market, Saudi Arabia, Technology Solutions, Web Development, Mobile Apps, Business Analysis">
+    <meta name="author" content="Mu7med Shahba">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mu7medshahba.com/">
+    <meta property="og:title" content="Mu7med Shahba | Business & Technology Consultant | Full-Stack Developer">
+    <meta property="og:description" content="Business Analyst, Management Consultant & Full-Stack Developer specializing in digital transformation and scalable software solutions.">
+    <meta property="og:image" content="https://mu7medshahba.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Mu7med Shahba Portfolio">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mu7medshahba.com/">
+    <meta property="twitter:title" content="Mu7med Shahba | Business & Technology Consultant | Full-Stack Developer">
+    <meta property="twitter:description" content="Business Analyst, Management Consultant & Full-Stack Developer specializing in digital transformation and scalable software solutions.">
+    <meta property="twitter:image" content="https://mu7medshahba.com/twitter-image.jpg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#f97316">
+    <meta name="msapplication-TileColor" content="#f97316">
+    <meta name="apple-mobile-web-app-title" content="Mu7med Shahba">
+    <meta name="application-name" content="Mu7med Shahba Portfolio">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mu7med Shahba",
+      "jobTitle": "Business & Technology Consultant | Full-Stack Developer",
+      "description": "Business Analyst, Management Consultant & Full-Stack Developer specializing in digital transformation, process optimization, and scalable software solutions.",
+      "url": "https://mu7medshahba.com",
+      "sameAs": [
+        "https://linkedin.com/in/mu7medshahba",
+        "https://github.com/mu7medshahba"
+      ],
+      "knowsAbout": [
+        "Business Analysis",
+        "Management Consulting",
+        "Digital Transformation",
+        "Process Optimization",
+        "Full-Stack Development",
+        "React.js",
+        "Node.js",
+        "Business Strategy",
+        "Project Management",
+        "KSA Market"
+      ],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Business & Technology Consultant",
+        "occupationLocation": {
+          "@type": "Country",
+          "name": "Saudi Arabia"
+        }
+      }
+    }
+    </script>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- Favicon and App Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f97316">
+    
+    <!-- Performance Optimization -->
+    <link rel="preload" as="style" href="/src/index.css">
+    <link rel="preload" as="script" href="/src/main.jsx">
+    
+    <!-- Security Headers (would be added in server config) -->
+    <!--
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+    -->
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Performance Monitoring (optional) -->
+    <script>
+      // Basic performance monitoring
+      window.addEventListener('load', function() {
+        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        console.log('Page load time:', loadTime + 'ms');
+        
+        // Send to analytics (example)
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'timing_complete', {
+            'name': 'load',
+            'value': loadTime,
+            'event_category': 'Load Performance'
+          });
+        }
+      });
+    </script>
+    
+    <!-- Progressive Web App Features (optional) -->
+    <script>
+      // Register service worker for PWA
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').then(function(registration) {
+            console.log('SW registered: ', registration);
+          }).catch(function(registrationError) {
+            console.log('SW registration failed: ', registrationError);
+          });
+        });
+      }
+    </script>
   </body>
 </html>
