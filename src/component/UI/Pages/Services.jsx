@@ -236,41 +236,41 @@ const Services = () => {
                 </h3>
                 <div className="space-y-2">
                   {servicesData.map((category, index) => (
-            <motion.button
-    key={index}
-    onClick={() => setActiveCategory(index)}
-    className={`w-full text-left p-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 group ${
-        activeCategory === index
-        ? "bg-orange-50 dark:bg-orange-500/20 border border-orange-200 dark:border-orange-400/30 text-orange-700 dark:text-orange-300"
-        : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 border border-transparent"
-    }`}
-    whileHover={{ x: 5 }}
-    transition={{
-        type: "spring",
-        stiffness: 400,
-        damping: 10,
-    }}
->
-    <motion.span
-        className="text-xl"
-        whileHover={{ scale: 1.1 }}
-        transition={{ duration: 0.2 }}
-    >
-        {category.icon}
-    </motion.span>
-    <span className="font-medium text-sm flex-1 text-left">
-        {category.category}
-    </span>
-    <span
-        className={`text-xs px-2 py-1 rounded-full ${
-            activeCategory === index
-            ? "bg-orange-500 text-white"
-            : "bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400"
-        }`}
-    >
-        {category.items.length}
-    </span>
-</motion.button>
+                    <motion.button
+                      key={index}
+                      onClick={() => setActiveCategory(index)}
+                      className={`w-full text-left p-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 group ${
+                        activeCategory === index
+                          ? "bg-orange-50 dark:bg-orange-500/20 border border-orange-200 dark:border-orange-400/30 text-orange-700 dark:text-orange-300"
+                          : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 border border-transparent"
+                      }`}
+                      whileHover={{ x: 5 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
+                    >
+                      <motion.span
+                        className="text-xl"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {category.icon}
+                      </motion.span>
+                      <span className="font-medium text-sm flex-1 text-left">
+                        {category.category}
+                      </span>
+                      <span
+                        className={`text-xs px-2 py-1 rounded-full ${
+                          activeCategory === index
+                            ? "bg-orange-500 text-white"
+                            : "bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400"
+                        }`}
+                      >
+                        {category.items.length}
+                      </span>
+                    </motion.button>
                   ))}
                 </div>
               </div>
@@ -504,8 +504,6 @@ const Services = () => {
           </motion.div>
         </motion.div>
       </div>
-
-      
     </section>
   );
 };

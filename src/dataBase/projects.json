@@ -4,23 +4,32 @@
       "id": 1,
       "title": "Tutora - Online Learning Platform",
       "description": "A comprehensive online learning platform with course management, student progress tracking, and interactive learning features.",
-      "tech": ["React", "Node.js", "MongoDB", "Express", "JWT"],
+      "tech": ["React", "Node.js", "Express", "JWT"],
       "category": "Fullstack",
-      "status": "Live",
+      "status": "Completed",
       "featured": true,
       "gradient": "from-blue-500 to-purple-600",
       "icon": "🎓",
       "liveUrl": "https://tutora-web.netlify.app/",
       "githubUrl": "https://github.com/mu7amedshahba/web_tutora",
       "image": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80",
-      "screenshot": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+      "screenshot": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      "type": "development",
+      "detailsUrl": "/projects/tutora-online-learning-platform",
+      "reportPdf": "/reports/tutora-report.pdf"
     },
     {
       "id": 2,
       "title": "BookStore - E-commerce Platform",
       "description": "Modern e-book store with advanced search, user reviews, shopping cart, and secure payment integration.",
-      "tech": ["React", "CSS3", "JavaScript", "API Integration", "Responsive Design"],
-      "category": "Frontend",
+      "tech": [
+        "React",
+        "CSS3",
+        "JavaScript",
+        "API Integration",
+        "Responsive Design"
+      ],
+      "category": "Fullstack",
       "status": "Completed",
       "featured": true,
       "gradient": "from-green-500 to-emerald-600",
@@ -28,13 +37,16 @@
       "liveUrl": "https://web-books-store99.netlify.app/",
       "githubUrl": "https://github.com/mu7amedshahba/shop_store",
       "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80",
-      "screenshot": "https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-4.0.3&auto=format&fit=crop&w=1134&q=80"
+      "screenshot": "https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-4.0.3&auto=format&fit=crop&w=1134&q=80",
+      "type": "development",
+      "detailsUrl": "/projects/bookstore-ecommerce-platform",
+      "reportPdf": "/reports/bookstore-report.pdf"
     },
     {
       "id": 3,
       "title": "Task Management App",
       "description": "Collaborative project management tool with real-time updates, team chat, and advanced analytics dashboard.",
-      "tech": ["Next.js", "Socket.io","Tailwind", "Prisma"],
+      "tech": ["Next.js", "Socket.io", "Tailwind", "Prisma"],
       "category": "Web App",
       "status": "Live",
       "featured": false,
@@ -43,25 +55,13 @@
       "liveUrl": "#",
       "githubUrl": "#",
       "image": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1139&q=80",
-      "screenshot": "https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+      "screenshot": "https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      "type": "development",
+      "detailsUrl": "/projects/task-management-app",
+      "reportPdf": "/reports/task-management-report.pdf"
     },
     {
       "id": 4,
-      "title": "Fitness Tracking App",
-      "description": "Mobile-first fitness application with personalized workout plans, progress tracking, and social features.",
-      "tech": ["React Native", "Firebase", "GraphQL", "Redux", "AWS"],
-      "category": "Mobile",
-      "status": "Completed",
-      "featured": true,
-      "gradient": "from-orange-500 to-red-500",
-      "icon": "💪",
-      "liveUrl": "#",
-      "githubUrl": "#",
-      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-      "screenshot": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-    },
-    {
-      "id": 5,
       "title": "AI Content Generator",
       "description": "AI-powered content creation platform with natural language processing and multi-language support.",
       "tech": ["Python", "FastAPI", "React", "OpenAI", "Docker"],
@@ -73,8 +73,124 @@
       "liveUrl": "#",
       "githubUrl": "#",
       "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1332&q=80",
-      "screenshot": "https://images.unsplash.com/photo-1677442135130-2c7e4dc55a6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1332&q=80"
+      "screenshot": "https://images.unsplash.com/photo-1677442135130-2c7e4dc55a6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1332&q=80",
+      "type": "development",
+      "detailsUrl": "/projects/ai-content-generator",
+      "reportPdf": "/reports/ai-content-generator-report.pdf"
+    },
+    {
+      "id": 5,
+      "title": "Sales Performance Analytics Platform",
+      "description": "End-to-end business intelligence solution transforming raw sales data into actionable insights for enterprise decision-making.",
+      "tech": ["Power BI", "DAX", "Power Query", "SQL", "Data Modeling"],
+      "category": "Business Intelligence",
+      "status": "Completed",
+      "featured": true,
+      "gradient": "from-yellow-500 to-amber-600",
+      "icon": "📊",
+      "liveUrl": "#",
+      "githubUrl": "#",
+      "image": "/images/powerbi-sales-dashboard.jpg",
+      "type": "powerbi",
+      "detailsUrl": "/reports/sales-performance-analytics-platform",
+      "reportPdf": "/reports/sales-performance-analytics.pdf",
+      "caseStudy": {
+        "client": "Global Retail Corporation",
+        "duration": "6 weeks",
+        "industry": "Retail & E-commerce",
+        "challenge": "Lack of real-time sales visibility across 50+ stores, manual reporting processes taking 3+ days weekly, and inconsistent performance metrics across regions.",
+        "solution": "Developed a centralized Power BI analytics platform with automated data pipelines, interactive dashboards, and predictive sales forecasting.",
+        "results": [
+          "Reduced reporting time from 3 days to 15 minutes weekly",
+          "Increased sales visibility leading to 18% revenue growth",
+          "Enabled data-driven decisions across 5 regional teams",
+          "Automated 90% of manual reporting processes"
+        ],
+        "features": [
+          "Real-time sales performance tracking",
+          "Regional comparison analytics",
+          "Product performance dashboards",
+          "Sales forecasting models",
+          "Mobile-responsive reporting"
+        ],
+        "technologies": {
+          "data_sources": ["SQL Server", "Excel APIs", "CRM Integration"],
+          "visualization": [
+            "Power BI Desktop",
+            "Custom Visuals",
+            "Mobile Layouts"
+          ],
+          "analytics": [
+            "DAX Calculations",
+            "Time Intelligence",
+            "What-If Analysis"
+          ]
+        }
+      }
+    },
+    {
+      "id": 6,
+      "title": "Financial Operations Intelligence Suite",
+      "description": "Comprehensive financial analytics platform providing real-time insights into company performance, expense management, and budget optimization.",
+      "tech": [
+        "Power BI",
+        "Financial Modeling",
+        "Excel Integration",
+        "Data Visualization"
+      ],
+      "category": "Business Intelligence",
+      "status": "Completed",
+      "featured": true,
+      "gradient": "from-green-500 to-emerald-600",
+      "icon": "💰",
+      "liveUrl": "#",
+      "githubUrl": "#",
+      "image": "/images/powerbi-financial-report.jpg",
+      "type": "powerbi",
+      "detailsUrl": "/reports/financial-operations-intelligence-suite",
+      "reportPdf": "../dataBase/reports/pr-3.pdf",
+      "caseStudy": {
+        "client": "Financial Services Group",
+        "duration": "8 weeks",
+        "industry": "Financial Services",
+        "challenge": "Fragmented financial reporting across departments, manual budget vs actual comparisons, and lack of real-time expense tracking.",
+        "solution": "Implemented an integrated financial dashboard with automated data consolidation, budget tracking, and expense analytics.",
+        "results": [
+          "Improved budget accuracy by 35%",
+          "Reduced month-end closing by 5 days",
+          "Identified $2M in cost-saving opportunities",
+          "Enhanced financial forecasting accuracy by 40%"
+        ],
+        "features": [
+          "Real-time budget vs actual tracking",
+          "Expense categorization and analysis",
+          "Profit & loss dashboards",
+          "Cash flow forecasting",
+          "Departmental performance metrics"
+        ],
+        "technologies": {
+          "data_sources": ["QuickBooks API", "Bank Feeds", "ERP System"],
+          "visualization": [
+            "Power BI Service",
+            "Custom Reports",
+            "Executive Dashboards"
+          ],
+          "analytics": [
+            "Financial Ratios",
+            "Trend Analysis",
+            "Variance Reporting"
+          ]
+        }
+      }
     }
   ],
-  "categories": ["All", "Fullstack", "Frontend", "Web App", "Mobile", "AI/ML"]
+  "categories": [
+    "All",
+    "Fullstack",
+    "Frontend",
+    "Web App",
+    "Mobile",
+    "AI/ML",
+    "Business Intelligence"
+  ]
 }
