@@ -97,7 +97,7 @@ const SingleProduct = () => {
   }
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900">
+    <section className="min-h-screen pt-10 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
