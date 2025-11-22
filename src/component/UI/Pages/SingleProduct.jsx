@@ -384,7 +384,7 @@ const SingleProduct = () => {
                   <motion.button
                     onClick={() =>
                       window.open(
-                        project.reportPdf,
+                        project.liveUrl ,
                         "_blank",
                         "noopener,noreferrer"
                       )
@@ -393,7 +393,7 @@ const SingleProduct = () => {
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span>Visit the Live Site</span>
+                    <span >Visit the Live Site</span>
                     <motion.svg
                       className="w-5 h-5"
                       fill="none"
