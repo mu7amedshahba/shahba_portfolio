@@ -16,7 +16,7 @@ const WebSite = () => {
       <Home />
       <About />
       <Projects />
-      <SingleProduct />
+      {/* <SingleProduct /> */}
       <Services />
       <Contacts />
     </div>

@@ -1,6 +1,11 @@
 // src/App.jsx
 import { lazy, Suspense, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import ErrorBoundary from "./component/error/ErrorBoundery";
 
 // Scroll to top component
@@ -33,14 +38,14 @@ const useScrollToTop = () => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "instant" // or "smooth" for smooth scrolling
+      behavior: "instant", // or "smooth" for smooth scrolling
     });
   }, [pathname]);
 };
 
 const AppContent = () => {
   useScrollToTop(); // Use the scroll hook
-  
+
   return (
     <div className="App">
       <LazyNavbar />
