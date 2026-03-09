@@ -20,6 +20,7 @@ const Projects = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [pdfError, setPdfError] = useState(false);
+console.log(projects.map(item=>item.title))
 
   const [ref, inView] = useInView({
     threshold: 0.1,

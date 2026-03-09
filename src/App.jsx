@@ -24,6 +24,7 @@ const LazyNavbar = lazy(() => import("./component/UI/navbar/Navbar"));
 const LazyAbout = lazy(() => import("./component/UI/Pages/About"));
 const LazyProjects = lazy(() => import("./component/UI/Pages/Projects"));
 const LazyServices = lazy(() => import("./component/UI/Pages/Services"));
+const LazyContact = lazy(() => import("./component/UI/Pages/Contacts"));
 const LazyLoading = lazy(() => import("./component/spinner/Spinner"));
 const LazyNotFound = lazy(() => import("./component/notFound/NotFound"));
 const LazyFooter = lazy(() => import("./component/UI/Pages/Footer"));
@@ -45,7 +46,6 @@ const useScrollToTop = () => {
 
 const AppContent = () => {
   useScrollToTop(); // Use the scroll hook
-
   return (
     <div className="App">
       <LazyNavbar />
@@ -56,6 +56,7 @@ const AppContent = () => {
         <Route path="/projects" element={<LazyProjects />} />
         <Route path="/projects/:id" element={<LazySingleProjects />} />
         <Route path="/services" element={<LazyServices />} />
+        <Route path="/contact" element={<LazyContact />} />
         <Route path="*" element={<LazyNotFound />} />
       </Routes>
       <LazyFooter />
