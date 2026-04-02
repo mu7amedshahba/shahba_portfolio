@@ -22,13 +22,7 @@
       "id": 2,
       "title": "BookStore - E-commerce Platform",
       "description": "Modern e-book store with advanced search, user reviews, shopping cart, and secure payment integration.",
-      "tech": [
-        "React",
-        "CSS3",
-        "JavaScript",
-        "API Integration",
-        "Responsive Design"
-      ],
+      "tech": ["React", "CSS3", "JavaScript", "API Integration", "Responsive Design"],
       "category": "Fullstack",
       "status": "Completed",
       "featured": true,
@@ -87,126 +81,49 @@
         }
       }
     },
+ 
     {
-      "id": 4,
-      "title": "AI Content Generator",
-      "description": "AI-powered content creation platform with natural language processing and multi-language support.",
-      "tech": ["Python", "FastAPI", "React", "OpenAI", "Docker"],
-      "category": "AI/ML",
+      "id": 7,
+      "title": "Organizational Analysis & Strategy Development",
+      "description": "A structured organizational transformation initiative covering internal analysis, peer benchmarking, gap identification, SMART goal setting, scenario planning, and phased implementation — built on a BABOK-aligned methodology.",
+      "tech": ["BABOK", "SWOT Analysis", "GAP Analysis", "SMART Goals", "Benchmarking", "Risk Management", "KPI Dashboards"],
+      "category": "Business Analysis",
       "status": "In Progress",
       "featured": true,
-      "gradient": "from-indigo-500 to-purple-600",
-      "icon": "🤖",
+      "gradient": "from-violet-500 to-indigo-600",
+      "icon": "🏢",
       "liveUrl": "#",
       "githubUrl": "#",
-      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1332&q=80",
-      "screenshot": "https://images.unsplash.com/photo-1677442135130-2c7e4dc55a6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1332&q=80",
-      "type": "development",
-      "detailsUrl": "/projects/ai-content-generator",
-      "reportPdf": "/reports/ai-content-generator-report.pdf"
-    },
-    {
-      "id": 5,
-      "title": "Sales Performance Analytics Platform",
-      "description": "End-to-end business intelligence solution transforming raw sales data into actionable insights for enterprise decision-making.",
-      "tech": ["Power BI", "DAX", "Power Query", "SQL", "Data Modeling"],
-      "category": "Business Intelligence",
-      "status": "Completed",
-      "featured": true,
-      "gradient": "from-yellow-500 to-amber-600",
-      "icon": "📊",
-      "liveUrl": "#",
-      "githubUrl": "#",
-      "image": "/images/powerbi-sales-dashboard.jpg",
-      "type": "powerbi",
-      "detailsUrl": "/reports/sales-performance-analytics-platform",
-      "reportPdf": "/reports/sales-performance-analytics.pdf",
+      "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      "screenshot": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      "type": "business-analysis",
+      "detailsUrl": "/projects/organizational-analysis-strategy-development",
+      "reportPdf": "/src/dataBase/reports/Organizational Transformation Framework_ 9-Step Evidence-Based Approach (1).pdf",
       "caseStudy": {
-        "client": "Global Retail Corporation",
-        "duration": "6 weeks",
-        "industry": "Retail & E-commerce",
-        "challenge": "Lack of real-time sales visibility across 50+ stores, manual reporting processes taking 3+ days weekly, and inconsistent performance metrics across regions.",
-        "solution": "Developed a centralized Power BI analytics platform with automated data pipelines, interactive dashboards, and predictive sales forecasting.",
+        "client": "Confidential Organization",
+        "duration": "In Progress",
+        "industry": "Organizational Strategy & Consulting",
+        "challenge": "The organization lacked a structured approach to evaluate its current state, benchmark against peers, and translate insights into an actionable transformation strategy. Key issues included operational inefficiencies, capability gaps, and misalignment between structure and strategy.",
+        "solution": "Applied a BABOK-aligned methodology combining qualitative and quantitative analysis across 8 internal dimensions, peer group benchmarking, root cause identification, and a phased implementation roadmap with SMART goals and scenario-based risk management.",
         "results": [
-          "Reduced reporting time from 3 days to 15 minutes weekly",
-          "Increased sales visibility leading to 18% revenue growth",
-          "Enabled data-driven decisions across 5 regional teams",
-          "Automated 90% of manual reporting processes"
+          "Identified critical performance gaps through structured benchmarking",
+          "Defined SMART strategic goals aligned to organizational constraints",
+          "Developed multi-scenario risk framework with mitigation strategies",
+          "Designed a 3-phase implementation roadmap with KPI tracking system"
         ],
         "features": [
-          "Real-time sales performance tracking",
-          "Regional comparison analytics",
-          "Product performance dashboards",
-          "Sales forecasting models",
-          "Mobile-responsive reporting"
+          "Full internal audit across 8 organizational dimensions",
+          "Peer group identification and competitive benchmarking",
+          "Root cause analysis and gap identification",
+          "SMART goals framework for each strategic objective",
+          "Scenario analysis with risk probability and impact scoring",
+          "Phased implementation plan with governance structure",
+          "KPI dashboard design for performance monitoring"
         ],
         "technologies": {
-          "data_sources": ["SQL Server", "Excel APIs", "CRM Integration"],
-          "visualization": [
-            "Power BI Desktop",
-            "Custom Visuals",
-            "Mobile Layouts"
-          ],
-          "analytics": [
-            "DAX Calculations",
-            "Time Intelligence",
-            "What-If Analysis"
-          ]
-        }
-      }
-    },
-    {
-      "id": 6,
-      "title": "Financial Operations Intelligence Suite",
-      "description": "Comprehensive financial analytics platform providing real-time insights into company performance, expense management, and budget optimization.",
-      "tech": [
-        "Power BI",
-        "Financial Modeling",
-        "Excel Integration",
-        "Data Visualization"
-      ],
-      "category": "Business Intelligence",
-      "status": "Completed",
-      "featured": true,
-      "gradient": "from-green-500 to-emerald-600",
-      "icon": "💰",
-      "liveUrl": "#",
-      "githubUrl": "#",
-      "image": "/images/powerbi-financial-report.jpg",
-      "type": "powerbi",
-      "detailsUrl": "/reports/financial-operations-intelligence-suite",
-      "reportPdf": "../dataBase/reports/pr-3.pdf",
-      "caseStudy": {
-        "client": "Financial Services Group",
-        "duration": "8 weeks",
-        "industry": "Financial Services",
-        "challenge": "Fragmented financial reporting across departments, manual budget vs actual comparisons, and lack of real-time expense tracking.",
-        "solution": "Implemented an integrated financial dashboard with automated data consolidation, budget tracking, and expense analytics.",
-        "results": [
-          "Improved budget accuracy by 35%",
-          "Reduced month-end closing by 5 days",
-          "Identified $2M in cost-saving opportunities",
-          "Enhanced financial forecasting accuracy by 40%"
-        ],
-        "features": [
-          "Real-time budget vs actual tracking",
-          "Expense categorization and analysis",
-          "Profit & loss dashboards",
-          "Cash flow forecasting",
-          "Departmental performance metrics"
-        ],
-        "technologies": {
-          "data_sources": ["QuickBooks API", "Bank Feeds", "ERP System"],
-          "visualization": [
-            "Power BI Service",
-            "Custom Reports",
-            "Executive Dashboards"
-          ],
-          "analytics": [
-            "Financial Ratios",
-            "Trend Analysis",
-            "Variance Reporting"
-          ]
+          "methodology": ["BABOK Framework", "SWOT Analysis", "GAP Analysis", "Root Cause Analysis"],
+          "planning": ["SMART Goals", "Scenario Planning", "Risk Matrix", "Stakeholder Analysis"],
+          "tracking": ["KPI Dashboards", "Performance Monitoring", "Governance Framework"]
         }
       }
     }
@@ -215,9 +132,7 @@
     "All",
     "Fullstack",
     "Frontend",
-    "Web App",
-    "Mobile",
-    "AI/ML",
-    "Business Intelligence"
+    "Business Intelligence",
+    "Business Analysis"
   ]
 }

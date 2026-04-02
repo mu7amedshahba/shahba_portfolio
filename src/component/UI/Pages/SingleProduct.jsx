@@ -10,9 +10,9 @@ const SingleProduct = () => {
   const navigate = useNavigate();
   const projectId = Number(id);
   const [imageLoaded, setImageLoaded] = useState(false);
-  //
+
   const { projects } = projectsData;
-  //
+
   const project = useMemo(() => {
     if (location.state?.project) return location.state.project;
     return projects.find((p) => Number(p.id) === projectId);
@@ -20,39 +20,40 @@ const SingleProduct = () => {
 
   const caseStudy = project?.caseStudy;
 
-  // Animation variants
+  // ── Status helpers ──────────────────────────────────────────────
+  const statusConfig = {
+    Completed: {
+      bg: "bg-green-100 dark:bg-green-500/20",
+      text: "text-green-700 dark:text-green-300",
+      dot: "bg-green-500",
+    },
+    Live: {
+      bg: "bg-blue-100 dark:bg-blue-500/20",
+      text: "text-blue-700 dark:text-blue-300",
+      dot: "bg-blue-500",
+    },
+    "In Progress": {
+      bg: "bg-amber-100 dark:bg-amber-500/20",
+      text: "text-amber-700 dark:text-amber-300",
+      dot: "bg-amber-500",
+    },
+  };
+  const statusStyle = statusConfig[project?.status] || statusConfig["Completed"];
+
+  // ── Animation variants ──────────────────────────────────────────
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
-  //
+
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
-  //
+
   const slideInVariants = {
     hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
 
   if (!project) {
@@ -102,28 +103,13 @@ const SingleProduct = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-orange-100 to-amber-100 dark:from-orange-500/10 dark:to-amber-500/10 rounded-full blur-3xl opacity-40"
-          animate={{
-            opacity: [0.3, 0.5, 0.3],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-500/10 dark:to-cyan-500/10 rounded-full blur-3xl opacity-30"
-          animate={{
-            opacity: [0.2, 0.4, 0.2],
-            scale: [1.1, 1, 1.1],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
+          animate={{ opacity: [0.2, 0.4, 0.2], scale: [1.1, 1, 1.1] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
       </div>
 
@@ -144,12 +130,7 @@ const SingleProduct = () => {
             viewBox="0 0 24 24"
             whileHover={{ x: -2 }}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10 19l-7-7m0 0l7-7m-7 7h18"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </motion.svg>
           <span className="font-medium">Back to Projects</span>
         </motion.button>
@@ -160,8 +141,9 @@ const SingleProduct = () => {
           animate="visible"
           className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12"
         >
-          {/* Main Content */}
+          {/* ── MAIN CONTENT ─────────────────────────────────────── */}
           <div className="lg:col-span-2 space-y-4">
+
             {/* Project Header */}
             <motion.div
               variants={itemVariants}
@@ -196,41 +178,29 @@ const SingleProduct = () => {
                     <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center shadow-lg">
                       <span className="text-white text-lg">👤</span>
                     </div>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">
-                      Client
-                    </p>
-                    <p className="font-semibold text-gray-900 dark:text-white">
-                      {caseStudy.client}
-                    </p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">Client</p>
+                    <p className="font-semibold text-gray-900 dark:text-white">{caseStudy.client}</p>
                   </div>
                   <div className="text-center">
                     <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg">
                       <span className="text-white text-lg">🏢</span>
                     </div>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">
-                      Industry
-                    </p>
-                    <p className="font-semibold text-gray-900 dark:text-white">
-                      {caseStudy.industry}
-                    </p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">Industry</p>
+                    <p className="font-semibold text-gray-900 dark:text-white">{caseStudy.industry}</p>
                   </div>
                   <div className="text-center">
                     <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg">
                       <span className="text-white text-lg">⏱️</span>
                     </div>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">
-                      Duration
-                    </p>
-                    <p className="font-semibold text-gray-900 dark:text-white">
-                      {caseStudy.duration}
-                    </p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">Duration</p>
+                    <p className="font-semibold text-gray-900 dark:text-white">{caseStudy.duration}</p>
                   </div>
                 </motion.div>
               )}
             </motion.div>
 
-            {/* Project Image */}
-            {project.screenshot && (
+            {/* Project Image — with fallback */}
+            {project.screenshot ? (
               <motion.div variants={itemVariants} className="relative group">
                 <div className="relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-2xl">
                   <AnimatePresence>
@@ -257,10 +227,21 @@ const SingleProduct = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               </motion.div>
+            ) : (
+              /* ── FIX 5: Fallback when no screenshot ── */
+              <motion.div variants={itemVariants}>
+                <div className={`relative bg-gradient-to-br ${project.gradient || "from-violet-500 to-indigo-600"} rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-2xl h-64 flex items-center justify-center`}>
+                  <div className="text-center">
+                    <span className="text-8xl mb-4 block">{project.icon || "📁"}</span>
+                    <p className="text-white/80 font-medium text-lg">{project.title}</p>
+                  </div>
+                </div>
+              </motion.div>
             )}
 
             {/* Content Sections */}
             <div className="space-y-8">
+
               {/* The Challenge */}
               {caseStudy?.challenge && (
                 <motion.section
@@ -313,9 +294,7 @@ const SingleProduct = () => {
                             whileHover={{ x: 5 }}
                           >
                             <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
-                            <span className="text-gray-700 dark:text-gray-300">
-                              {feature}
-                            </span>
+                            <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                           </motion.div>
                         ))}
                       </div>
@@ -344,25 +323,59 @@ const SingleProduct = () => {
                         key={idx}
                         className="flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-500/10 dark:to-emerald-500/10 border border-green-200 dark:border-green-400/30"
                         whileHover={{ scale: 1.02 }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 10,
-                        }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
                       >
                         <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <p className="text-gray-700 dark:text-gray-300 text-lg">
-                          {result}
-                        </p>
+                        <p className="text-gray-700 dark:text-gray-300 text-lg">{result}</p>
                       </motion.div>
                     ))}
                   </div>
                 </motion.section>
               )}
 
-              {/* PDF Report */}
+              {/* ── FIX 3: Technologies Section (was never rendered) ── */}
+              {caseStudy?.technologies && Object.keys(caseStudy.technologies).length > 0 && (
+                <motion.section
+                  variants={slideInVariants}
+                  className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg"
+                >
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-500 rounded-2xl flex items-center justify-center shadow-lg">
+                      <span className="text-white text-lg">🛠️</span>
+                    </div>
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+                      Technologies Used
+                    </h2>
+                  </div>
+                  <div className="grid gap-4">
+                    {Object.entries(caseStudy.technologies).map(([category, items]) => (
+                      <div
+                        key={category}
+                        className="p-5 rounded-2xl bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-500/10 dark:to-violet-500/10 border border-purple-200 dark:border-purple-400/30"
+                      >
+                        <h4 className="text-sm font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-3 capitalize">
+                          {category.replace(/_/g, " ")}
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {items.map((item, idx) => (
+                            <motion.span
+                              key={idx}
+                              className="px-3 py-1.5 rounded-xl bg-white dark:bg-gray-800 border border-purple-200 dark:border-purple-400/30 text-gray-700 dark:text-gray-300 text-sm font-medium"
+                              whileHover={{ scale: 1.05, y: -2 }}
+                            >
+                              {item}
+                            </motion.span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.section>
+              )}
+
+              {/* ── FIX 1 & 2: PDF Report — correct label + icon ── */}
               {project.reportPdf && (
                 <motion.section
                   variants={slideInVariants}
@@ -382,41 +395,27 @@ const SingleProduct = () => {
                     </div>
                   </div>
                   <motion.button
-                    onClick={() =>
-                      window.open(
-                        project.reportPdf,
-                        "_blank",
-                        "noopener,noreferrer"
-                      )
-                    }
+                    onClick={() => window.open(project.reportPdf, "_blank", "noopener,noreferrer")}
                     className="group inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-white dark:bg-gray-800 border border-orange-300 dark:border-orange-500 text-orange-600 dark:text-orange-400 font-semibold hover:bg-orange-50 dark:hover:bg-orange-500/10 transition-all duration-300 shadow-md hover:shadow-lg"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span>Visit the Live Site</span>
-                    <motion.svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      animate={{ x: [0, 4, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M14 3h7m0 0v7m0-7L10 14"
-                      />
-                    </motion.svg>
+                    {/* FIX 2: PDF download icon instead of external link arrow */}
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17v3a1 1 0 001 1h16a1 1 0 001-1v-3M7 11V7a5 5 0 0110 0v4" />
+                    </svg>
+                    {/* FIX 1: Correct button label */}
+                    <span>View Full Report</span>
                   </motion.button>
                 </motion.section>
               )}
+
             </div>
           </div>
 
-          {/* Sidebar */}
+          {/* ── SIDEBAR ──────────────────────────────────────────── */}
           <div className="space-y-6">
+
             {/* Tech Stack */}
             <motion.div
               variants={itemVariants}
@@ -450,89 +449,69 @@ const SingleProduct = () => {
                 Project Details
               </h3>
               <div className="space-y-4">
+                {/* ── FIX 4: Dynamic status color ── */}
                 <div className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-500/10 dark:to-cyan-500/10 border border-blue-200 dark:border-blue-400/30">
-                  <span className="text-gray-600 dark:text-gray-400">
-                    Status
-                  </span>
-                  <span className="font-semibold text-gray-900 dark:text-white bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-300 px-3 py-1 rounded-full text-sm">
+                  <span className="text-gray-600 dark:text-gray-400">Status</span>
+                  <span className={`font-semibold px-3 py-1 rounded-full text-sm flex items-center gap-1.5 ${statusStyle.bg} ${statusStyle.text}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full ${statusStyle.dot} ${project.status === "In Progress" ? "animate-pulse" : ""}`}></span>
                     {project.status}
                   </span>
                 </div>
                 <div className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-500/10 dark:to-amber-500/10 border border-orange-200 dark:border-orange-400/30">
-                  <span className="text-gray-600 dark:text-gray-400">
-                    Category
-                  </span>
-                  <span className="font-semibold text-gray-900 dark:text-white">
-                    {project.category}
-                  </span>
+                  <span className="text-gray-600 dark:text-gray-400">Category</span>
+                  <span className="font-semibold text-gray-900 dark:text-white">{project.category}</span>
                 </div>
+                {caseStudy?.duration && (
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-500/10 dark:to-emerald-500/10 border border-green-200 dark:border-green-400/30">
+                    <span className="text-gray-600 dark:text-gray-400">Duration</span>
+                    <span className="font-semibold text-gray-900 dark:text-white">{caseStudy.duration}</span>
+                  </div>
+                )}
               </div>
             </motion.div>
 
-            {/* Project Links */}
-            <motion.div
-              variants={itemVariants}
-              className="bg-gradient-to-br from-orange-500 to-amber-500 rounded-3xl p-6 shadow-2xl shadow-orange-500/25"
-            >
-              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <span>🚀</span>
-                Project Links
-              </h3>
-              <div className="space-y-3">
-                {project.liveUrl && project.liveUrl !== "#" && (
-                  <motion.button
-                    onClick={() =>
-                      window.open(
-                        project.liveUrl,
-                        "_blank",
-                        "noopener,noreferrer"
-                      )
-                    }
-                    className="w-full px-4 py-3 rounded-xl bg-white text-orange-600 font-semibold hover:bg-gray-50 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <span>View Live Demo</span>
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+            {/* ── FIX 6: Project Links — only render if at least one real URL exists ── */}
+            {(project.liveUrl && project.liveUrl !== "#") ||
+            (project.githubUrl && project.githubUrl !== "#") ? (
+              <motion.div
+                variants={itemVariants}
+                className="bg-gradient-to-br from-orange-500 to-amber-500 rounded-3xl p-6 shadow-2xl shadow-orange-500/25"
+              >
+                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                  <span>🚀</span>
+                  Project Links
+                </h3>
+                <div className="space-y-3">
+                  {project.liveUrl && project.liveUrl !== "#" && (
+                    <motion.button
+                      onClick={() => window.open(project.liveUrl, "_blank", "noopener,noreferrer")}
+                      className="w-full px-4 py-3 rounded-xl bg-white text-orange-600 font-semibold hover:bg-gray-50 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                      whileHover={{ scale: 1.02, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </motion.button>
-                )}
-                {project.githubUrl && project.githubUrl !== "#" && (
-                  <motion.button
-                    onClick={() =>
-                      window.open(
-                        project.githubUrl,
-                        "_blank",
-                        "noopener,noreferrer"
-                      )
-                    }
-                    className="w-full px-4 py-3 rounded-xl bg-white/20 text-white font-semibold hover:bg-white/30 border border-white/30 transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-sm"
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <span>Source Code</span>
-                    <svg
-                      className="w-4 h-4"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
+                      <span>View Live Demo</span>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </motion.button>
+                  )}
+                  {project.githubUrl && project.githubUrl !== "#" && (
+                    <motion.button
+                      onClick={() => window.open(project.githubUrl, "_blank", "noopener,noreferrer")}
+                      className="w-full px-4 py-3 rounded-xl bg-white/20 text-white font-semibold hover:bg-white/30 border border-white/30 transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-sm"
+                      whileHover={{ scale: 1.02, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                    </svg>
-                  </motion.button>
-                )}
-              </div>
-            </motion.div>
+                      <span>Source Code</span>
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                      </svg>
+                    </motion.button>
+                  )}
+                </div>
+              </motion.div>
+            ) : null}
+
           </div>
         </motion.div>
       </div>
