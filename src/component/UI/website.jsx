@@ -8,16 +8,20 @@ import Services from "./Pages/Services";
 import PowerBIProjects from "./Pages/PowerBIReports";
 
 import "../../index.css";
-import SingleProduct from "./Pages/SingleProduct";
+import Services2 from "./Pages/Services2";
 
 const WebSite = () => {
   return (
     <div>
       <Home />
       <About />
-      <Projects />
+      {/* <Projects /> */}
+
       {/* <SingleProduct /> */}
-      <Services />
+
+      {/* <Services /> */}
+      
+      <Services2 />
       <Contacts />
     </div>
   );
