@@ -1,0 +1,128 @@
+
+{
+  "services": [
+    {
+      "id": 1,
+      "title": "Business Analysis & Development",
+      "subtitle": "Management & Government Solutions",
+      "description": "Comprehensive business analysis and development services for management and government sectors. Transform complex requirements into actionable strategies.",
+      "longDescription": "I provide expert business analysis and development services tailored for management and government entities. From requirement gathering to process optimization, I help organizations achieve their strategic goals through data-driven decision making and efficient workflows.",
+      "category": "Business",
+      "icon": "🏛️",
+      "gradient": "from-blue-500 to-cyan-500",
+      "thumbnailGradient": "from-blue-400 to-blue-600",
+      "featured": true,
+      "status": "Active",
+      "stats": [
+        {
+          "label": "Projects Completed",
+          "value": "25+"
+        },
+        {
+          "label": "Happy Clients",
+          "value": "20+"
+        },
+        {
+          "label": "Success Rate",
+          "value": "98%"
+        }
+      ],
+      "services": [
+        "Requirements Analysis & Documentation",
+        "Business Process Optimization",
+        "Government Compliance & Regulations",
+        "Stakeholder Management",
+        "Strategic Planning",
+        "Risk Assessment"
+      ],
+      "deliverables": [
+        "Business Requirements Document",
+        "Process Flow Diagrams",
+        "Feasibility Studies",
+        "Impact Analysis Reports"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Web Development & Portfolios",
+      "subtitle": "Startup & Organizational Solutions",
+      "description": "Professional web development services for startups and organizations. Build modern, responsive websites and portfolios that drive engagement.",
+      "longDescription": "I specialize in creating high-performance web applications and stunning portfolios for startups and established organizations. Using cutting-edge technologies, I deliver solutions that are fast, secure, and scalable to help you establish a strong online presence.",
+      "category": "Development",
+      "icon": "🌐",
+      "gradient": "from-purple-500 to-pink-500",
+      "thumbnailGradient": "from-purple-400 to-purple-600",
+      "featured": true,
+      "status": "Active",
+      "stats": [
+        {
+          "label": "Websites Built",
+          "value": "35+"
+        },
+        {
+          "label": "Startups Helped",
+          "value": "15+"
+        },
+        {
+          "label": "Avg Load Time",
+          "value": "<2s"
+        }
+      ],
+      "services": [
+        "Custom Website Development",
+        "Portfolio Design & Development",
+        "Startup MVP Development",
+        "E-commerce Solutions",
+        "CMS Integration",
+        "Performance Optimization"
+      ],
+      "deliverables": [
+        "Fully Responsive Website",
+        "Source Code & Documentation",
+        "SEO Optimization",
+        "Analytics Integration"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Data Analysis & Power BI",
+      "subtitle": "Monthly & Annual Reporting",
+      "description": "Professional data analysis services using Excel, SQL, and Python. Create insightful Power BI dashboards and reports.",
+      "longDescription": "Transform raw data into actionable insights with my comprehensive data analysis services. I specialize in creating interactive Power BI dashboards, automated Excel reports, and data pipelines using SQL and Python. Perfect for monthly and annual reporting needs.",
+      "category": "Data",
+      "icon": "📊",
+      "gradient": "from-green-500 to-emerald-500",
+      "thumbnailGradient": "from-green-400 to-green-600",
+      "featured": true,
+      "status": "Active",
+      "stats": [
+        {
+          "label": "Dashboards Created",
+          "value": "40+"
+        },
+        {
+          "label": "Data Processed",
+          "value": "1M+"
+        },
+        {
+          "label": "Reports Generated",
+          "value": "100+"
+        }
+      ],
+      "services": [
+        "Power BI Dashboard Development",
+        "SQL Database Management",
+        "Python Data Analysis",
+        "Excel Automation",
+        "Monthly/Annual Report Generation",
+        "Data Visualization"
+      ],
+      "deliverables": [
+        "Interactive Dashboards",
+        "Automated Reports",
+        "Data Cleaning Scripts",
+        "Performance Metrics"
+      ]
+    }
+  ]
+}
